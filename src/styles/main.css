@@ -24,7 +24,7 @@
 }
 
 #main {
-	border: #4aa8ab 4px double;
+	border: #4aa8ab 5px double;
 	grid-row: 2 / 9;
 	grid-column: 3 / 13;
 }
