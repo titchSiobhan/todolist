@@ -295,8 +295,15 @@ mainArea.appendChild(taskDiv);
 
 }
 
-const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-
+const savedTasksRaw = localStorage.getItem('tasks');
+let savedTasks;
+try {
+  savedTasks = savedTasksRaw ? JSON.parse(savedTasksRaw) : [];
+} catch (err) {
+  console.warn('Invalid tasks in localStorage, resetting to []', err);
+  savedTasks = [];
+}
+if (!Array.isArray(savedTasks)) savedTasks = [];
 
 savedTasks.forEach(t => {
     tasks.push(new addTodo(
